@@ -1,0 +1,472 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Vitrine da Rafa</title><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Caveat:wght@400;600;700&family=Permanent+Marker&family=Shrikhand&display=swap" rel="stylesheet">
+<style>
+/* Layout: mesma linguagem do portfolio da Rafa. Ticker preto no topo, hero rosa com
+   nome em letras coladas, depois a secao do kit com cards tipo polaroid, sombra dura e fita. */
+:root {
+  --pink-pale: #ffe9f3;
+  --pink-paper: #fff3f9;
+  --pink: #ff6fb0;
+  --pink-hot: #ff2d87;
+  --pink-deep: #d4006b;
+  --black: #18130f;
+  --white: #fffaf6;
+  --cream: #fff8f1;
+  --yellow: #ffe066;
+  --sky: #c9f2ff;
+  --mint: #e2ffb0;
+  --lilac: #f3e9ff;
+  --shadow-hard: 4px 4px 0 var(--black);
+  --shadow-sm: 2.5px 2.5px 0 var(--black);
+  --f-display: 'Anton', 'Arial Narrow', Impact, sans-serif;
+  --f-alt: 'Shrikhand', Georgia, serif;
+  --f-label: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --f-hand: 'Permanent Marker', 'Comic Sans MS', cursive;
+  --f-script: 'Caveat', 'Comic Sans MS', cursive;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--pink-paper);
+  background-image: radial-gradient(circle at 1px 1px, rgba(24, 19, 15, .05) 1px, transparent 0);
+  background-size: 14px 14px;
+  color: var(--black);
+  font-family: var(--f-script);
+  font-size: 19px;
+  line-height: 1.35;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a, button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--pink-deep); outline-offset: 3px; }
+::selection { background: var(--pink-hot); color: var(--white); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.wrap { max-width: 1000px; margin: 0 auto; padding-inline: 20px; }
+
+/* ticker */
+.ticker {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 60;
+  height: 42px; display: flex; align-items: center; overflow: hidden; white-space: nowrap;
+  background: var(--black); color: var(--pink-pale); border-bottom: 3px solid var(--pink-hot);
+}
+.ticker-track { display: inline-flex; align-items: center; animation: tick 28s linear infinite; }
+.ticker-track span { font-family: var(--f-label); font-size: 1.05rem; letter-spacing: .09em; text-transform: uppercase; padding: 0 22px; }
+.ticker-track span.pink { color: var(--pink-hot); }
+@keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* hero */
+.hero {
+  position: relative; overflow: hidden; padding-block: 44px 64px;
+  background:
+    radial-gradient(ellipse 60% 40% at 15% 10%, rgba(255, 111, 176, .35), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 90% 20%, rgba(255, 45, 135, .25), transparent 60%),
+    var(--pink-pale);
+  border-bottom: 3px dashed var(--black);
+}
+.hero-inner { position: relative; display: flex; flex-direction: column; align-items: center; }
+.hero-top { width: 100%; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 14px; }
+.handle {
+  font-family: var(--f-hand); font-size: 1rem; color: var(--pink-deep); text-decoration: none;
+  background: var(--white); border: 2.5px solid var(--black); border-radius: 999px;
+  padding: 8px 16px; box-shadow: var(--shadow-sm); transform: rotate(-4deg);
+}
+.sticker {
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  border-radius: 999px; border: 2.5px solid var(--black); box-shadow: var(--shadow-sm);
+  background: var(--yellow); font-family: var(--f-label); letter-spacing: .04em;
+}
+.badge { width: 94px; height: 94px; font-size: .78rem; line-height: 1.1; transform: rotate(9deg); flex: none; }
+.badge b { font-size: 1.05rem; font-weight: 400; display: block; }
+
+.title { margin: 6px 0 4px; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; }
+.title .row { display: flex; justify-content: center; flex-wrap: nowrap; gap: .02em; }
+.title .gap { width: .3em; }
+.lt { display: inline-block; font-size: clamp(3rem, 15vw, 6.2rem); line-height: .92; padding: 0 .015em; filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, .9)); }
+.lt-1 { font-family: var(--f-display); color: var(--pink-hot); transform: rotate(-6deg); }
+.lt-2 { font-family: var(--f-alt); color: var(--black); transform: rotate(4deg); }
+.lt-3 { font-family: var(--f-display); color: var(--white); -webkit-text-stroke: 3px var(--black); transform: rotate(-3deg); }
+.lt-4 { font-family: var(--f-label); color: var(--pink-deep); transform: rotate(7deg); }
+.lt-5 { font-family: var(--f-alt); color: var(--pink-deep); transform: rotate(-8deg); }
+.lt-6 { font-family: var(--f-display); color: var(--black); transform: rotate(5deg); }
+.lt-7 { font-family: var(--f-label); color: var(--pink-hot); transform: rotate(-4deg); }
+.lt-8 { font-family: var(--f-alt); color: var(--white); -webkit-text-stroke: 3px var(--pink-deep); transform: rotate(6deg); }
+
+.sub {
+  margin: 14px 0 0; max-width: 560px; text-align: center; font-weight: 700; font-size: clamp(1.2rem, 3.6vw, 1.7rem);
+  background: var(--yellow); border: 2px solid var(--black); box-shadow: var(--shadow-sm);
+  padding: 4px 16px; transform: rotate(-1.2deg);
+}
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 24px; }
+.hero-btn {
+  font-family: var(--f-label); font-size: 1.05rem; letter-spacing: .05em; text-transform: uppercase; text-decoration: none;
+  padding: 13px 28px; border-radius: 999px; border: 2.5px solid var(--black); box-shadow: var(--shadow-sm);
+}
+.hero-btn.primary { background: var(--pink-hot); color: var(--white); }
+.hero-btn.outline { background: var(--white); color: var(--black); }
+
+.doodle { position: absolute; pointer-events: none; filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, .18)); }
+.d1 { top: 30%; left: 1%; width: 38px; }
+.d2 { top: 50%; right: 2%; width: 44px; }
+.d3 { top: 4%; left: 42%; width: 22px; }
+@media (max-width: 600px) { .d2, .d3 { display: none; } .d1 { top: 22%; left: -2px; width: 28px; } }
+
+/* kit */
+.kit { background: var(--cream); padding-block: 60px 64px; border-bottom: 3px dashed var(--black); }
+.kicker { margin: 0 0 6px; font-family: var(--f-label); font-size: 1rem; letter-spacing: .12em; color: var(--pink-deep); text-transform: uppercase; }
+h2.sec { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1.05; text-transform: lowercase; text-wrap: balance; }
+.hl { display: inline-block; background: var(--yellow); border: 2px solid var(--black); box-shadow: var(--shadow-sm); padding: 0 12px; transform: rotate(-1.5deg); }
+
+.bilhete {
+  margin: 22px 0 0; max-width: 430px; padding: 12px 16px; background: var(--yellow);
+  border: 2px solid var(--black); box-shadow: var(--shadow-sm); transform: rotate(-1deg);
+  font-family: var(--f-hand); font-size: .95rem; line-height: 1.35;
+}
+.preview { margin: 16px 0 0; max-width: 430px; padding: 10px 14px; background: var(--white); border: 2px dashed var(--black); font-size: 1.05rem; transform: rotate(.8deg); }
+
+.controls { margin-top: 30px; display: flex; flex-direction: column; gap: 14px; }
+.search input {
+  width: 100%; padding: 11px 18px; border-radius: 999px; background: var(--white);
+  border: 2.5px solid var(--black); box-shadow: var(--shadow-sm); font-size: 1.1rem;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  cursor: pointer; font-family: var(--f-label); font-size: .98rem; letter-spacing: .06em; text-transform: uppercase;
+  padding: 8px 18px; border-radius: 999px; border: 2.5px solid var(--black); box-shadow: var(--shadow-sm);
+  background: var(--pink-pale);
+}
+.chip.c0 { background: var(--white); }
+.chip.c1 { background: var(--yellow); }
+.chip.c2 { background: var(--sky); }
+.chip.c3 { background: var(--pink); }
+.chip.c4 { background: var(--mint); }
+.chip.c5 { background: var(--lilac); }
+.chip[aria-pressed="true"] { background: var(--black); color: var(--pink-pale); }
+.count { margin: 26px 0 18px; font-family: var(--f-label); font-size: .95rem; letter-spacing: .12em; text-transform: uppercase; font-variant-numeric: tabular-nums; }
+
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; padding-top: 8px; }
+@media (min-width: 760px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px 26px; } }
+
+.card {
+  position: relative; display: flex; flex-direction: column; gap: 10px; min-width: 0;
+  background: var(--white); border: 2.4px solid var(--black); box-shadow: var(--shadow-hard);
+  padding: 10px 10px 14px;
+}
+.card:nth-child(3n+1) { transform: rotate(-1.4deg); }
+.card:nth-child(3n+2) { transform: rotate(1deg); }
+.card:nth-child(3n) { transform: rotate(-.5deg); }
+.tape {
+  position: absolute; top: -13px; left: 50%; width: 70px; height: 24px; margin-left: -35px; transform: rotate(-4deg);
+  background: repeating-linear-gradient(45deg, rgba(255, 255, 255, .55) 0 6px, rgba(255, 224, 102, .55) 6px 12px);
+  background-color: rgba(255, 240, 180, .55); border: 1px solid rgba(0, 0, 0, .08); box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+}
+.ph {
+  position: relative; aspect-ratio: 4 / 5; max-width: 100%; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; text-align: center; padding: 12px;
+  background: linear-gradient(135deg, #ffd1e8 0%, #ff9ecb 45%, #ff5fa2 100%);
+  font-family: var(--f-label); font-size: .9rem; letter-spacing: .06em; text-transform: uppercase;
+}
+.ph::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
+  background: linear-gradient(115deg, rgba(255, 255, 255, .55) 0%, rgba(255, 255, 255, 0) 28%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, .35) 78%, rgba(255, 255, 255, 0) 100%);
+  transform: translateX(-30%);
+}
+.ph span { opacity: .75; }
+.ph img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
+.ex { position: absolute; z-index: 2; top: 8px; left: 8px; padding: 1px 10px; font-size: .85rem; transform: rotate(-6deg); }
+.cbody { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; padding-inline: 4px; }
+.store { align-self: flex-start; font-family: var(--f-label); font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; background: var(--sky); border: 2px solid var(--black); border-radius: 999px; padding: 0 10px; }
+.name { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: 1.3rem; line-height: 1.05; text-transform: uppercase; overflow-wrap: anywhere; }
+.note { margin: 0; font-weight: 700; font-size: 1.12rem; line-height: 1.2; }
+.actions { margin-top: auto; padding-top: 10px; display: flex; flex-direction: column; gap: 10px; }
+.btn {
+  display: block; text-align: center; text-decoration: none; cursor: pointer;
+  font-family: var(--f-label); font-size: 1.05rem; letter-spacing: .05em; text-transform: uppercase;
+  padding: 10px 14px; border-radius: 999px; border: 2.5px solid var(--black); box-shadow: var(--shadow-sm);
+  background: var(--pink-hot); color: var(--white);
+}
+.coupon {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; cursor: pointer;
+  padding: 6px 12px; background: var(--yellow); border: 2px dashed var(--black); font-family: var(--f-hand); font-size: .85rem;
+}
+.coupon .code { overflow-wrap: anywhere; text-align: left; }
+.coupon .cp { flex: none; color: var(--pink-deep); }
+.detalhe { margin: 0; font-size: 1.05rem; line-height: 1.2; color: #5a4a40; }
+.btn.alt { background: var(--yellow); color: var(--black); }
+.empty { margin: 28px 0; padding: 22px; text-align: center; background: var(--white); border: 2.5px dashed var(--black); font-weight: 700; }
+
+/* rodape */
+.foot { background: var(--black); color: var(--pink-pale); padding-block: 36px 44px; }
+.foot-inner { display: flex; flex-direction: column; gap: 18px; }
+.foot p { margin: 0; max-width: 60ch; font-size: 1.2rem; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.foot-links a {
+  font-family: var(--f-label); font-size: 1rem; letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
+  padding: 7px 18px; border-radius: 999px; border: 2.5px solid var(--pink-pale); color: var(--pink-pale);
+}
+.foot-links a.hot { background: var(--pink-hot); border-color: var(--pink-hot); color: var(--white); }
+.foot :focus-visible { outline-color: var(--pink); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .doodle { animation: bob 6s ease-in-out infinite; }
+  .d2 { animation-duration: 7s; animation-direction: reverse; }
+  @keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -12px; } }
+  .card, .hero-btn, .chip, .btn { transition: transform .2s ease; }
+  .card:hover { transform: rotate(0deg) translateY(-6px); }
+  .hero-btn:hover, .btn:hover, .chip:hover { transform: translateY(-3px) rotate(-1.5deg); }
+  .card:hover .ph::after { transform: translateX(10%); transition: transform .6s ease; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+}
+</style>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+<header class="hero">
+  <svg class="doodle d1" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21 2.6 11.6C-.4 8.4.9 3 5.2 2.2 8 1.7 10.6 3 12 5.2 13.4 3 16 1.7 18.8 2.2c4.300.8 5.600 6.200 2.600 9.400z" fill="#ff2d87" stroke="#18130f" stroke-width="1.6" stroke-linejoin="round"/></svg>
+  <svg class="doodle d2" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 1.800 3 6.800 7.400.8-5.500 5 1.600 7.300L12 17.900 5.500 21.700l1.600-7.300-5.500-5 7.400-.8z" fill="#ffe066" stroke="#18130f" stroke-width="1.6" stroke-linejoin="round"/></svg>
+  <svg class="doodle d3" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21 2.6 11.6C-.4 8.4.9 3 5.2 2.2 8 1.7 10.6 3 12 5.2 13.4 3 16 1.7 18.8 2.2c4.300.8 5.600 6.200 2.600 9.400z" fill="#ff3b3b" stroke="#18130f" stroke-width="1.6" stroke-linejoin="round"/></svg>
+  <div class="wrap hero-inner">
+    <div class="hero-top">
+      <a class="handle" href="https://instagram.com/rafamarzano" target="_blank" rel="noopener noreferrer">@rafamarzano</a>
+      <span class="sticker badge">kit<b>da creator ★</b></span>
+    </div>
+    <h1 class="title" aria-label="vitrine da rafa"><span class="row" id="row1"></span><span class="row" id="row2"></span></h1>
+    <p class="sub">meus equipamentos, com link direto pra comprar</p>
+    <div class="hero-actions">
+      <a class="hero-btn primary" href="#kit">ver equipamentos</a>
+      <a class="hero-btn outline" href="https://rafamarzano.github.io/portifolio/" target="_blank" rel="noopener noreferrer">ver portfólio</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="kit" id="kit">
+    <div class="wrap">
+      <p class="kicker">kit da creator</p>
+      <h2 class="sec">meus <span class="hl">equipamentos</span></h2>
+      <p class="bilhete">caiu aqui pelo vídeo? escolhe a loja que for melhor pra você ✦</p>
+      <p class="preview" id="preview" hidden>prévia: confira os nomes e a ordem dos equipamentos. se o mesmo produto estiver nas duas lojas, o card fica com os dois botões.</p>
+
+      <div class="controls" id="controls">
+        <label class="search" id="searchBox" hidden>
+          <span class="sr">buscar equipamento</span>
+          <input id="q" type="search" placeholder="buscar equipamento" autocomplete="off">
+        </label>
+        <div class="chips" id="chips" role="group" aria-label="categorias"></div>
+      </div>
+
+      <p class="count" id="count" aria-live="polite"></p>
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="empty" hidden>nada por aqui ainda. tenta outra palavra ou volta pra tudo.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div class="foot-links">
+      <a class="hot" href="https://instagram.com/rafamarzano" target="_blank" rel="noopener noreferrer">instagram</a>
+      <a href="https://tiktok.com/@rafamarzano" target="_blank" rel="noopener noreferrer">tiktok</a>
+      <a href="https://rafamarzano.github.io/portifolio/" target="_blank" rel="noopener noreferrer">portfólio ugc</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============ EDITE AQUI ============
+   Cada equipamento vira um card. Campos:
+   nome, categoria, loja, nota (por que você usa), link (afiliada),
+   cupom (opcional), img (opcional, caminho da foto), exemplo (apague nos reais) */
+const PREVIA = true;
+
+const ML = "mercado livre", SP = "shopee";
+const PRODUTOS = [
+  // se o mesmo produto existir nas duas lojas, coloque as duas em "lojas" do mesmo item
+  // áudio
+  { nome: "ulanzi J12 lightning", categoria: "áudio", detalhe: "microfone de lapela sem fio, 2 mics, iphone e ipad", lojas: [{ loja: ML, link: "https://meli.la/2Mg9P5K" }] },
+  { nome: "ulanzi J12 usb-c", categoria: "áudio", detalhe: "microfone sem fio, 2 mics, android e tipo c", lojas: [{ loja: ML, link: "https://meli.la/1vZz3A8" }] },
+  { nome: "microfone de lapela J6", categoria: "áudio", detalhe: "magnético, sem fio duplo, anti ruído", lojas: [{ loja: ML, link: "https://meli.la/2AGcWRY" }] },
+  // filmar
+  { nome: "tripé e bastão de selfie ulanzi", categoria: "filmar", detalhe: "para câmera e smartphone, preto", lojas: [{ loja: ML, link: "https://meli.la/2HDjtQr" }] },
+  { nome: "ulanzi TT88", categoria: "filmar", detalhe: "tripé magnético", lojas: [{ loja: SP, link: "https://s.shopee.com.br/7faXy6Wy8s" }] },
+  { nome: "ulanzi TT23", categoria: "filmar", detalhe: "tripé de auto-rastreamento ai 360°", lojas: [{ loja: SP, link: "https://s.shopee.com.br/6AlkBImgsV" }] },
+  // luz
+  { nome: "ring light tomate 18 polegadas", categoria: "luz", detalhe: "127/220v, branco quente", lojas: [{ loja: ML, link: "https://meli.la/2y5DsZw" }] },
+  { nome: "ring light tomate MLG-099", categoria: "luz", detalhe: "led 45w, luz ajustável, com tripé", lojas: [{ loja: ML, link: "https://meli.la/1CLFB6G" }] },
+  { nome: "luz led inflável bicolor", categoria: "luz", detalhe: "5v, para fotografia e gravação", lojas: [{ loja: ML, link: "https://meli.la/1RJUhpL" }] },
+  { nome: "ulanzi LM01", categoria: "luz", detalhe: "lanterna rgb com 20 filtros", lojas: [{ loja: SP, link: "https://s.shopee.com.br/1qcl1PsA8N" }] },
+  { nome: "ulanzi AS-L30", categoria: "luz", detalhe: "softbox octogonal dobrável", lojas: [{ loja: SP, link: "https://s.shopee.com.br/BUX2UdPUU" }] },
+  { nome: "ulanzi VL110", categoria: "luz", detalhe: "bastão de luz led rgb portátil", lojas: [{ loja: SP, link: "https://s.shopee.com.br/1qcl1brmgg" }] },
+  { nome: "ulanzi VL49", categoria: "luz", detalhe: "luz rgb", lojas: [{ loja: SP, link: "https://s.shopee.com.br/5fpTakwu0n" }] },
+  { nome: "ulanzi UA20", categoria: "luz", detalhe: "bastão de luz led inflável 20w, bicolor", lojas: [{ loja: SP, link: "https://s.shopee.com.br/8AWoZPuMXa" }] }
+];
+/* ============ FIM DA EDIÇÃO ============ */
+
+(function () {
+  // ticker
+  var items = ['★ kit da creator', '★ link direto pra comprar', '★ main character creator', '★ comentou, chegou aqui'];
+  var tk = document.getElementById('ticker');
+  for (var r = 0; r < 2; r++) {
+    for (var t = 0; t < 4; t++) {
+      for (var k = 0; k < items.length; k++) {
+        var s = document.createElement('span');
+        s.textContent = items[k];
+        if (k % 2 === 1) s.className = 'pink';
+        tk.appendChild(s);
+      }
+    }
+  }
+
+  // titulo em letras coladas
+  function letters(el, text, start) {
+    var i = start;
+    for (var c = 0; c < text.length; c++) {
+      var ch = text.charAt(c);
+      var s = document.createElement('span');
+      if (ch === ' ') { s.className = 'gap'; s.setAttribute('aria-hidden', 'true'); el.appendChild(s); continue; }
+      s.className = 'lt lt-' + ((i % 8) + 1);
+      s.textContent = ch.toUpperCase();
+      s.setAttribute('aria-hidden', 'true');
+      el.appendChild(s);
+      i++;
+    }
+  }
+  letters(document.getElementById('row1'), 'vitrine', 0);
+  letters(document.getElementById('row2'), 'da rafa', 3);
+
+  if (PREVIA) document.getElementById('preview').hidden = false;
+
+  var state = { cat: 'tudo', q: '' };
+  var grid = document.getElementById('grid');
+  var chips = document.getElementById('chips');
+  var count = document.getElementById('count');
+  var empty = document.getElementById('empty');
+  var input = document.getElementById('q');
+
+  var cats = ['tudo'];
+  PRODUTOS.forEach(function (p) { if (cats.indexOf(p.categoria) < 0) cats.push(p.categoria); });
+  chips.hidden = cats.length <= 2;
+  document.getElementById('searchBox').hidden = PRODUTOS.length < 9;
+
+  function norm(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+
+  function makeChips() {
+    chips.textContent = '';
+    cats.forEach(function (c, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'chip c' + (i % 6); b.textContent = c;
+      b.setAttribute('aria-pressed', String(state.cat === c));
+      b.addEventListener('click', function () { state.cat = c; makeChips(); render(); });
+      chips.appendChild(b);
+    });
+  }
+
+  function copyCode(code, label) {
+    function done() { label.textContent = 'copiado!'; setTimeout(function () { label.textContent = 'copiar'; }, 1600); }
+    function fallback() {
+      try {
+        var t = document.createElement('textarea');
+        t.value = code; t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        var ok = document.execCommand('copy');
+        document.body.removeChild(t);
+        if (ok) done();
+      } catch (e) {}
+    }
+    try { navigator.clipboard.writeText(code).then(done, fallback); } catch (e) { fallback(); }
+  }
+
+  function card(p) {
+    var el = document.createElement('article');
+    el.className = 'card';
+
+    var tape = document.createElement('span');
+    tape.className = 'tape'; tape.setAttribute('aria-hidden', 'true');
+    el.appendChild(tape);
+
+    var ph = document.createElement('div');
+    ph.className = 'ph';
+    if (p.img) {
+      var im = document.createElement('img');
+      im.src = p.img; im.alt = p.nome; im.loading = 'lazy';
+      ph.appendChild(im);
+    } else {
+      var lab = document.createElement('span');
+      lab.textContent = 'foto do equipamento';
+      ph.appendChild(lab);
+    }
+    if (p.pendente) {
+      var ex = document.createElement('span');
+      ex.className = 'sticker ex'; ex.textContent = 'nome pendente';
+      ph.appendChild(ex);
+    }
+    el.appendChild(ph);
+
+    var body = document.createElement('div');
+    body.className = 'cbody';
+    var store = document.createElement('span');
+    store.className = 'store'; store.textContent = p.categoria;
+    var name = document.createElement('h3');
+    name.className = 'name'; name.textContent = p.nome;
+    body.appendChild(store); body.appendChild(name);
+    if (p.detalhe) {
+      var det = document.createElement('p');
+      det.className = 'detalhe'; det.textContent = p.detalhe;
+      body.appendChild(det);
+    }
+    if (p.nota) {
+      var note = document.createElement('p');
+      note.className = 'note'; note.textContent = p.nota;
+      body.appendChild(note);
+    }
+
+    var actions = document.createElement('div');
+    actions.className = 'actions';
+    p.lojas.forEach(function (l, li) {
+      var a = document.createElement('a');
+      a.className = 'btn' + (l.loja === ML ? ' alt' : '');
+      a.href = l.link;
+      a.textContent = p.lojas.length > 1 ? l.loja + ' →' : (l.loja === ML ? 'ver no ' : 'ver na ') + l.loja + ' →';
+      a.target = '_blank'; a.rel = 'sponsored noopener noreferrer';
+      actions.appendChild(a);
+    });
+
+    if (p.cupom) {
+      var c = document.createElement('button');
+      c.type = 'button'; c.className = 'coupon';
+      var code = document.createElement('span'); code.className = 'code'; code.textContent = p.cupom;
+      var cp = document.createElement('span'); cp.className = 'cp'; cp.textContent = 'copiar';
+      c.setAttribute('aria-label', 'copiar cupom ' + p.cupom);
+      c.appendChild(code); c.appendChild(cp);
+      c.addEventListener('click', function () { copyCode(p.cupom, cp); });
+      actions.appendChild(c);
+    }
+    body.appendChild(actions);
+    el.appendChild(body);
+    return el;
+  }
+
+  function render() {
+    var q = norm(state.q);
+    var list = PRODUTOS.filter(function (p) {
+      var okCat = state.cat === 'tudo' || p.categoria === state.cat;
+      var okQ = !q || norm([p.nome, p.nota, p.detalhe, p.categoria].join(' ')).indexOf(q) >= 0;
+      return okCat && okQ;
+    });
+    grid.textContent = '';
+    list.forEach(function (p) { grid.appendChild(card(p)); });
+    var n = list.length;
+    count.textContent = n + (n === 1 ? ' equipamento' : ' equipamentos') + (state.cat !== 'tudo' ? ' em ' + state.cat : '');
+    empty.hidden = n !== 0;
+  }
+
+  input.addEventListener('input', function () { state.q = input.value; render(); });
+  makeChips();
+  render();
+})();
+</script>
+
+</body></html>
