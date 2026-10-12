@@ -173,7 +173,8 @@ h2.sec { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: 
   transform: translateX(-30%);
 }
 .ph span { opacity: .75; }
-.ph img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
+.ph.has-img { background: #fff; padding: 0; }
+.ph img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: contain; }
 .ex { position: absolute; z-index: 2; top: 8px; left: 8px; padding: 1px 10px; font-size: .85rem; transform: rotate(-6deg); }
 .cbody { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; padding-inline: 4px; }
 .store { align-self: flex-start; font-family: var(--f-label); font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; background: var(--sky); border: 2px solid var(--black); border-radius: 999px; padding: 0 10px; }
@@ -286,22 +287,22 @@ const ML = "mercado livre", SP = "shopee";
 const PRODUTOS = [
   // se o mesmo produto existir nas duas lojas, coloque as duas em "lojas" do mesmo item
   // áudio
-  { nome: "ulanzi J12 lightning", categoria: "áudio", detalhe: "microfone de lapela sem fio, 2 mics, iphone e ipad", lojas: [{ loja: ML, link: "https://meli.la/2Mg9P5K" }] },
-  { nome: "ulanzi J12 usb-c", categoria: "áudio", detalhe: "microfone sem fio, 2 mics, android e tipo c", lojas: [{ loja: ML, link: "https://meli.la/1vZz3A8" }] },
-  { nome: "microfone de lapela J6", categoria: "áudio", detalhe: "magnético, sem fio duplo, anti ruído", lojas: [{ loja: ML, link: "https://meli.la/2AGcWRY" }] },
+  { nome: "ulanzi J12 lightning", img: "fotos/ulanzi-j12-lightning.webp", categoria: "áudio", detalhe: "microfone de lapela sem fio, 2 mics, iphone e ipad", lojas: [{ loja: ML, link: "https://meli.la/2Mg9P5K" }] },
+  { nome: "ulanzi J12 usb-c", img: "fotos/ulanzi-j12-usb-c.webp", categoria: "áudio", detalhe: "microfone sem fio, 2 mics, android e tipo c", lojas: [{ loja: ML, link: "https://meli.la/1vZz3A8" }] },
+  { nome: "microfone de lapela J6", img: "fotos/microfone-lapela-j6.webp", categoria: "áudio", detalhe: "magnético, sem fio duplo, anti ruído", lojas: [{ loja: ML, link: "https://meli.la/2AGcWRY" }] },
   // filmar
-  { nome: "tripé e bastão de selfie ulanzi", categoria: "filmar", detalhe: "para câmera e smartphone, preto", lojas: [{ loja: ML, link: "https://meli.la/2HDjtQr" }] },
-  { nome: "ulanzi TT88", categoria: "filmar", detalhe: "tripé magnético", lojas: [{ loja: SP, link: "https://s.shopee.com.br/7faXy6Wy8s" }] },
-  { nome: "ulanzi TT23", categoria: "filmar", detalhe: "tripé de auto-rastreamento ai 360°", lojas: [{ loja: SP, link: "https://s.shopee.com.br/6AlkBImgsV" }] },
+  { nome: "tripé e bastão de selfie ulanzi", img: "fotos/tripe-bastao-selfie-ulanzi.webp", categoria: "filmar", detalhe: "para câmera e smartphone, preto", lojas: [{ loja: ML, link: "https://meli.la/2HDjtQr" }] },
+  { nome: "ulanzi TT88", img: "fotos/ulanzi-tt88.webp", categoria: "filmar", detalhe: "tripé magnético", lojas: [{ loja: SP, link: "https://s.shopee.com.br/7faXy6Wy8s" }] },
+  { nome: "ulanzi TT23", img: "fotos/ulanzi-tt23.webp", categoria: "filmar", detalhe: "tripé de auto-rastreamento ai 360°", lojas: [{ loja: SP, link: "https://s.shopee.com.br/6AlkBImgsV" }] },
   // luz
-  { nome: "ring light tomate 18 polegadas", categoria: "luz", detalhe: "127/220v, branco quente", lojas: [{ loja: ML, link: "https://meli.la/2y5DsZw" }] },
-  { nome: "ring light tomate MLG-099", categoria: "luz", detalhe: "led 45w, luz ajustável, com tripé", lojas: [{ loja: ML, link: "https://meli.la/1CLFB6G" }] },
-  { nome: "luz led inflável bicolor", categoria: "luz", detalhe: "5v, para fotografia e gravação", lojas: [{ loja: ML, link: "https://meli.la/1RJUhpL" }] },
-  { nome: "ulanzi LM01", categoria: "luz", detalhe: "lanterna rgb com 20 filtros", lojas: [{ loja: SP, link: "https://s.shopee.com.br/1qcl1PsA8N" }] },
-  { nome: "ulanzi AS-L30", categoria: "luz", detalhe: "softbox octogonal dobrável", lojas: [{ loja: SP, link: "https://s.shopee.com.br/BUX2UdPUU" }] },
-  { nome: "ulanzi VL110", categoria: "luz", detalhe: "bastão de luz led rgb portátil", lojas: [{ loja: SP, link: "https://s.shopee.com.br/1qcl1brmgg" }] },
-  { nome: "ulanzi VL49", categoria: "luz", detalhe: "luz rgb", lojas: [{ loja: SP, link: "https://s.shopee.com.br/5fpTakwu0n" }] },
-  { nome: "ulanzi UA20", categoria: "luz", detalhe: "bastão de luz led inflável 20w, bicolor", lojas: [{ loja: SP, link: "https://s.shopee.com.br/8AWoZPuMXa" }] }
+  { nome: "ring light tomate 18 polegadas", img: "fotos/ring-light-tomate-18.webp", categoria: "luz", detalhe: "127/220v, branco quente", lojas: [{ loja: ML, link: "https://meli.la/2y5DsZw" }] },
+  { nome: "ring light tomate MLG-099", img: "fotos/ring-light-tomate-mlg-099.webp", categoria: "luz", detalhe: "led 45w, luz ajustável, com tripé", lojas: [{ loja: ML, link: "https://meli.la/1CLFB6G" }] },
+  { nome: "luz led inflável bicolor", img: "fotos/luz-led-inflavel-bicolor.webp", categoria: "luz", detalhe: "5v, para fotografia e gravação", lojas: [{ loja: ML, link: "https://meli.la/1RJUhpL" }] },
+  { nome: "ulanzi LM01", img: "fotos/ulanzi-lm01.webp", categoria: "luz", detalhe: "lanterna rgb com 20 filtros", lojas: [{ loja: SP, link: "https://s.shopee.com.br/1qcl1PsA8N" }] },
+  { nome: "ulanzi AS-L30", img: "fotos/ulanzi-as-l30.webp", categoria: "luz", detalhe: "softbox octogonal dobrável", lojas: [{ loja: SP, link: "https://s.shopee.com.br/BUX2UdPUU" }] },
+  { nome: "ulanzi VL110", img: "fotos/ulanzi-vl110.webp", categoria: "luz", detalhe: "bastão de luz led rgb portátil", lojas: [{ loja: SP, link: "https://s.shopee.com.br/1qcl1brmgg" }] },
+  { nome: "ulanzi VL49", img: "fotos/ulanzi-vl49.webp", categoria: "luz", detalhe: "luz rgb", lojas: [{ loja: SP, link: "https://s.shopee.com.br/5fpTakwu0n" }] },
+  { nome: "ulanzi UA20", img: "fotos/ulanzi-ua20.webp", categoria: "luz", detalhe: "bastão de luz led inflável 20w, bicolor", lojas: [{ loja: SP, link: "https://s.shopee.com.br/8AWoZPuMXa" }] }
 ];
 /* ============ FIM DA EDIÇÃO ============ */
 
@@ -390,6 +391,7 @@ const PRODUTOS = [
     var ph = document.createElement('div');
     ph.className = 'ph';
     if (p.img) {
+      ph.classList.add('has-img');
       var im = document.createElement('img');
       im.src = p.img; im.alt = p.nome; im.loading = 'lazy';
       ph.appendChild(im);
